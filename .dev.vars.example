@@ -1,0 +1,3 @@
+# Copy to .dev.vars and replace with hashes for your local API keys.
+# The values below are SHA-256 hashes for sample local keys, mapped to workspaces.
+API_KEY_HASHES_JSON="{\"0ff34e5649135b9ea35bf169cbb93c953b35197485e1cf80ff2f95929ec15cd5\":\"workspace_a\",\"ea99e24edcbd32c2f031c1a3b4bddcb5712be37798bbe14b277d76aeacbc9fcf\":\"workspace_b\"}"

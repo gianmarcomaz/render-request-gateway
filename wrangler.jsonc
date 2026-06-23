@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "render-request-gateway",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-06-23",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "wayframe_render_requests",
+      "database_id": "d61b8148-d638-4dec-b4da-f1a83052d76d",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "RATE_LIMITER",
+        "class_name": "RateLimiter"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["RateLimiter"]
+    }
+  ]
+}

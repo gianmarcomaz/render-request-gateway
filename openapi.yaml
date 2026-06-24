@@ -4,6 +4,8 @@ info:
   version: 0.1.0
   description: HTTP API for queuing and listing Wayframe render requests.
 servers:
+  - url: https://render-request-gateway.gianmarcomazzella.workers.dev
+    description: Live deployed Worker
   - url: http://localhost:8787
     description: Local Wrangler dev server
 security:

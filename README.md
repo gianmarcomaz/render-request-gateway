@@ -47,7 +47,8 @@ node -e "const { createHash } = require('crypto'); console.log(createHash('sha25
 npm run dev
 ```
 
-The Worker runs at `http://localhost:8787`.
+The deployed Worker is available at `https://render-request-gateway.gianmarcomazzella.workers.dev`.
+For local development, `npm run dev` starts Wrangler at `http://localhost:8787`.
 
 ## Test
 
@@ -62,8 +63,8 @@ Tests use `@cloudflare/vitest-pool-workers` with real D1 and Durable Object bind
 Queue a render:
 
 ```sh
-curl -i http://localhost:8787/v1/renders \
-  -H "Authorization: Bearer $WAYFRAME_API_KEY" \
+curl -i https://render-request-gateway.gianmarcomazzella.workers.dev/v1/renders \
+  -H "Authorization: Bearer wayframe_demo_key_a" \
   -H "Content-Type: application/json" \
   -H "Idempotency-Key: demo-request-1" \
   -d '{"asset_id":"asset_123","preset":"1080p"}'
@@ -73,8 +74,8 @@ Trigger the 10 requests per 60 seconds limit:
 
 ```sh
 for i in $(seq 1 11); do
-  curl -i http://localhost:8787/v1/renders \
-    -H "Authorization: Bearer $WAYFRAME_API_KEY" \
+  curl -i https://render-request-gateway.gianmarcomazzella.workers.dev/v1/renders \
+    -H "Authorization: Bearer wayframe_demo_key_a" \
     -H "Content-Type: application/json" \
     -d "{\"asset_id\":\"asset_$i\",\"preset\":\"720p\"}"
 done
@@ -83,8 +84,8 @@ done
 List recent renders:
 
 ```sh
-curl -i "http://localhost:8787/v1/renders?limit=50" \
-  -H "Authorization: Bearer $WAYFRAME_API_KEY"
+curl -i "https://render-request-gateway.gianmarcomazzella.workers.dev/v1/renders?limit=50" \
+  -H "Authorization: Bearer wayframe_demo_key_a"
 ```
 
 ## Production Considerations / What I'd Do Next

@@ -47,7 +47,9 @@ node -e "const { createHash } = require('crypto'); console.log(createHash('sha25
 npm run dev
 ```
 
-The deployed Worker is available at `https://render-request-gateway.gianmarcomazzella.workers.dev`.
+The deployed Worker is live at `https://render-request-gateway.gianmarcomazzella.workers.dev`.
+Health check (no auth): open `https://render-request-gateway.gianmarcomazzella.workers.dev/health` to see `{"status":"ok"}`.
+All other routes require a Bearer API key, so requesting the base URL without one correctly returns 401.
 For local development, `npm run dev` starts Wrangler at `http://localhost:8787`.
 
 ## Test
